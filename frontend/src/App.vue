@@ -1,9 +1,9 @@
 <template>
-  <header-component></header-component>
+  <header-component v-if="useMainHeader"></header-component>
   <main
     id="main"
     :class="{
-      'padding-for-sticky': currentPage !== 'storeDetailPage',
+      'padding-for-sticky': paddingForSticky,
       'on-home': onHome,
     }"
   >
@@ -26,6 +26,19 @@ export default {
   },
   computed: {
     ...mapState("common", ["currentPage", "onHome"]),
+    useMainHeader() {
+      return (
+        this.currentPage !== "loginPage" &&
+        this.currentPage !== "memberEntryPage"
+      );
+    },
+    paddingForSticky() {
+      return (
+        this.currentPage !== "loginPage" &&
+        this.currentPage !== "memberEntryPage" &&
+        this.currentPage !== "storeDetailPage"
+      );
+    },
   },
   methods: {
     ...mapActions("common", [`${SET_CURRENT_PAGE}`]),

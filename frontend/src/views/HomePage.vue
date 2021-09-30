@@ -80,6 +80,7 @@
 <script>
 import { mapState, mapGetters } from "vuex";
 import {
+  SET_CURRENT_PAGE,
   SET_ON_HOME,
   SET_CURRENT_HOME_COORDS,
 } from "@/store/modules/common.js";
@@ -163,6 +164,9 @@ export default {
     },
   },
   created() {
+    if (this.currentPage !== "homePage") {
+      this.$store.commit(`common/${SET_CURRENT_PAGE}`, "homePage");
+    }
     this.$store.commit(`common/${SET_ON_HOME}`, true);
   },
   mounted() {

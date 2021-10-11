@@ -38,7 +38,7 @@
         </div>
       </div>
     </div>
-    <div id="store-detail-page_nav">
+    <div id="store-detail-page_nav" :class="{ 'on-modal': onModal }">
       <div
         class="tab"
         @click="onClickTab('menu')"
@@ -126,7 +126,7 @@ export default {
     };
   },
   computed: {
-    ...mapState("common", ["currentPage"]),
+    ...mapState("common", ["currentPage", "onModal"]),
     ...mapState("product", ["storeSimpleInfo", "products"]),
     imageIsInterestedPath() {
       if (!this.storeSimpleInfo.isInterested) {
@@ -387,6 +387,9 @@ export default {
   height: 7vh;
   display: flex;
   justify-content: space-between;
+}
+#store-detail-page_nav.on-modal {
+  z-index: 0;
 }
 #store-detail-page_nav .tab {
   color: #5e5e5e;

@@ -1,5 +1,5 @@
 <template>
-  <div class="product-li" @click="openModal">
+  <div class="product-li" @click="onClickProductLi(product)">
     <div class="product-li_img_wrap">
       <img :src="product.img" :alt="product.name" />
     </div>
@@ -12,7 +12,9 @@
 </template>
 
 <script>
-import ModalComponent from "@/components/client/common/share/pages/ModalComponent.vue";
+import { SET_ON_MODAL } from "@/store/modules/common.js";
+import { OPEN_MENU_SELECT_MODAL } from "@/store/modules/product.js";
+import { mapActions } from "vuex";
 
 export default {
   props: ["product"],
@@ -29,11 +31,16 @@ export default {
     },
   },
   methods: {
-    openModal() {
-      this.modal = true;
+    ...mapActions("product", [OPEN_MENU_SELECT_MODAL]),
+    openModal(productObj) {
+      this.OPEN_MENU_SELECT_MODAL(productObj);
+      // this.$store.commit(`common/${SET_ON_MODAL}`, true);
     },
     closeModal() {
-      this.modal = false;
+      console.log("close event 발생");
+    },
+    onClickProductLi(productObj) {
+      this.openModal(productObj);
     },
   },
 };

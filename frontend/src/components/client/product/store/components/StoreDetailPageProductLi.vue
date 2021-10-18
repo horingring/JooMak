@@ -8,7 +8,6 @@
       <div class="content_right">{{ price }} 원</div>
     </div>
   </div>
-  <modal-component v-if="modal" @close="closeModal"></modal-component>
 </template>
 
 <script>
@@ -18,12 +17,6 @@ import { mapActions } from "vuex";
 
 export default {
   props: ["product"],
-  components: { ModalComponent },
-  data() {
-    return {
-      modal: false,
-    };
-  },
   computed: {
     price() {
       let num = this.product.price;

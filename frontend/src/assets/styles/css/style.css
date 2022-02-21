@@ -1889,3 +1889,80 @@ a:-webkit-any-link {
   bottom: 20%;
 }
 /* cartPage_e */
+
+/* myInfoPage_s */
+#myInfoPage {
+  width: 100%;
+  height: fit-content;
+  padding: 80px 10vw;
+}
+#myInfoPage .content_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+#myInfoPage h2 {
+  font-weight: bold;
+}
+
+#myInfoPage table {
+  width: 100%;
+}
+#myInfoPage table th {
+  border-bottom: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  text-align: center;
+  padding: 20px;
+  font-weight: normal;
+  background-color: #fff7d3;
+}
+#myInfoPage table {
+  border-top: 1px solid #e0e0e0;
+}
+#myInfoPage table td {
+  border-bottom: 1px solid #e0e0e0;
+  padding-left: 40px;
+}
+#myInfoPage table td.img_td {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#myInfoPage table td.img_td > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+}
+#myInfoPage table td.img_td .img_wrap {
+  width: 101px;
+  height: 101px;
+}
+#myInfoPage table td.img_td .img_wrap > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+#myInfoPage .btn_wrap button {
+  color: #f1c40f;
+  background-color: white;
+  padding: 2vh 3vh;
+  border: 1px solid #ffdd1b;
+  border-radius: 10px;
+}
+#myInfoPage .btn_wrap button:hover {
+  font-weight: bold;
+}
+#myInfoPage .btn_wrap button:active {
+  font-weight: bold;
+  color: white;
+  background-color: #ffdd1b;
+}
+#myInfoPage .btn_wrap.on-auth {
+  width: 200px;
+}
+
+/* myInfoPage_e */

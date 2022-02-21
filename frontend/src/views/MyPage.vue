@@ -1,13 +1,27 @@
 <template>
-  <div>
-    MyPage 공통 컴포넌트입니다. <br />이곳에서<br />
-    MyInfoPage.vue<br />AddressConfigPage.vue<br />JoomakDiaryPage.vue<br />를
-    렌더링 합니다.
-  </div>
+  <MyInfoPage v-if="currentMode === 'myInfo'" />
+  <AddressConfigPage v-else-if="currentMode === 'addressConfig'" />
+  <JoomakDiaryPage v-else-if="currentMode === 'joomakDiary'" />
 </template>
 
 <script>
-export default {};
+import MyInfoPage from "@/components/client/member/pages/MyInfoPage.vue";
+import AddressConfigPage from "@/components/client/member/pages/AddressConfigPage.vue";
+import JoomakDiaryPage from "@/components/client/member/pages/JoomakDiaryPage.vue";
+
+export default {
+  components: {
+    MyInfoPage,
+    AddressConfigPage,
+    JoomakDiaryPage,
+  },
+
+  computed: {
+    currentMode() {
+      return this.$route.params.mode;
+    },
+  },
+};
 </script>
 
 <style></style>
